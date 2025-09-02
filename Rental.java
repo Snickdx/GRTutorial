@@ -17,21 +17,19 @@ public class Rental {
     }
 
     public void doReturn(){
-      Date currentDate = new Date();;
-      this.listing.setAvailability(true);
-      this.endDate = currentDate;
+      // Stubbed - do nothing
     }
 
     public Date getEndDate(){
-      return this.endDate;
+      return null;
     }
 
     public Game getGame(){
-      return this.listing.getGame();
+      return null;
     }
 
     public Listing getListing(){
-      return this.listing;
+      return null;
     }
 
 }

@@ -11,32 +11,27 @@ public class Customer extends User {
     }
 
     private Payment makePayment(float amount) {
-        Payment newPayment = new Payment(amount, this);
-        return newPayment;
+        return null;
     }
 
     public Rental rentGame(Listing listing) {
-        Rental newRental = new Rental(listing, this);
-        listing.setAvailability(false);
-        this.makePayment(listing.getPrice());
-        return newRental;
+        return null;
     }
 
     public void returnGame(Rental rental){
-      rental.doReturn();
+      // Stubbed - do nothing
     }
   
     public Listing listGame(Game game, float amount) {
-        Listing newListing = new Listing(this, game, amount);
-        return newListing;
+        return null;
     }
 
     public String getUsername(){
-      return this.username;
+      return null;
     }
 
     public String getPassword(){
-      return this.password;
+      return null;
     }
 
     

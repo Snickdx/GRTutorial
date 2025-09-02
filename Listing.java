@@ -10,27 +10,23 @@ public class Listing {
   private boolean available;
 
   public Listing( Customer customer, Game game, float amount) {
-    this.price = amount;
-    this.game = game;
-    this.owner = customer;
-    Date currentDate = new Date();
-    this.dateListed = currentDate;
+ 
   }
 
   public void setAvailability(boolean availibility){
-    this.available = availibility;
+    // Stubbed - do nothing
   }
 
   public boolean getAvailability(){
-    return this.available;
+    return false;
   }
 
   public float getPrice(){
-    return this.price;
+    return 0.0f;
   }
 
   public Game getGame(){
-    return this.game;
+    return null;
   }
 
 }

@@ -6,15 +6,15 @@ public class Staff extends User {
     }
 
     public void confirmRental(Customer renter, Listing listing) {
-        renter.rentGame(listing);
+        // Stubbed - do nothing
     }
 
     public void confirmReturn(Customer renter, Rental rental) {
-        renter.returnGame(rental);
+        // Stubbed - do nothing
     }
 
     public void confirmListing(Game game, Customer owner, Float price) {
-        owner.listGame(game, price);
+        // Stubbed - do nothing
     }
 
 }

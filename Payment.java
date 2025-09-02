@@ -15,7 +15,7 @@ public class Payment {
   }
 
   public float getAmount(){
-    return this.amount;
+    return 0.0f;
   }
 
 }

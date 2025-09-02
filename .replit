@@ -2,6 +2,7 @@ compile = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*
 run = "java -classpath .:target/dependency/* Main"
 entrypoint = "Main.java"
 hidden = ["**/*.class"]
+modules = ["java"]
 
 [packager]
 language = "java"
@@ -63,6 +64,7 @@ build = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.j
 run = "java -classpath .:target/dependency/* Main"
 
 [workflows]
+runButton = "Project"
 
 [[workflows.workflow]]
 name = "Run Tests"
@@ -75,17 +77,27 @@ args = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.ja
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "java -classpath .:target/dependency/* org.junit.runner.JUnitCore CustomerTest GameTest ListingTest RentalTest PaymentTest StaffTest IntegrationTest"
+args = "java -classpath .:target/dependency/* TestRunner"
 
 [[workflows.workflow]]
-name = "Run Enhanced Tests"
-author = 1625439
-mode = "sequential"
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Java App"
+
+[[workflows.workflow]]
+name = "Java App"
+author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
+args = "java Main"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "java -classpath .:target/dependency/* TestRunner"
+[workflows.workflow.metadata]
+outputType = "console"
+
+[agent]
+expertMode = true
