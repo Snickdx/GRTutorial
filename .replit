@@ -61,3 +61,18 @@ mainClass = "Main"
 [deployment]
 build = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
 run = "java -classpath .:target/dependency/* Main"
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Run Tests"
+author = 1625439
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "java -classpath .:target/dependency/* org.junit.runner.JUnitCore CustomerTest GameTest ListingTest RentalTest PaymentTest StaffTest IntegrationTest"
