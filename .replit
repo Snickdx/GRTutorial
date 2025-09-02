@@ -76,3 +76,16 @@ args = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.ja
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "java -classpath .:target/dependency/* org.junit.runner.JUnitCore CustomerTest GameTest ListingTest RentalTest PaymentTest StaffTest IntegrationTest"
+
+[[workflows.workflow]]
+name = "Run Enhanced Tests"
+author = 1625439
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "java -classpath .:target/dependency/* TestRunner"
