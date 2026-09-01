@@ -7,30 +7,30 @@ A Java tutorial project that models a game rental service. Users (customers and 
 - **Language:** Java (source/target compatibility 1.5, runtime via GraalVM/OpenJDK)
 - **Build tool:** Maven (`pom.xml`)
 - **Entry point:** `Main.java` — prints a welcome message
-- **Source layout:** flat (`.java` files in the project root, not the standard `src/main/java` layout)
+- **Source layout:** Standard Maven structure (`src/main/java` for application code, `src/test/java` for tests)
 - **Dependencies:** JUnit 4.12, Hamcrest Core 1.3, json-simple 1.1.1
 
 ## Running the Application
 
-Helper scripts are provided to compile and run:
+Helper scripts are provided to compile and run for both Linux/macOS (`.sh`) and Windows (`.bat`):
 
-| Command       | What it does                          |
-|---------------|---------------------------------------|
-| `compile.bat` | Compiles all `.java` files            |
-| `run.bat`     | Compiles, then runs the app (`Main`)  |
-| `test.bat`    | Compiles, then runs the test suite    |
+| Linux / macOS | Windows | What it does |
+|---|---|---|
+| `./compile.sh` | `compile.bat` | Compiles all source and test Java files |
+| `./run.sh` | `run.bat` | Compiles, then runs the app (`Main`) |
+| `./test.sh` | `test.bat` | Compiles, then runs the test suite (`TestRunner`) |
 
 To run the app:
 
 ```bash
-run.bat
+./run.sh
 ```
 
 Equivalent manual commands:
 
 ```bash
-javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')
-java -classpath .:target/dependency/* Main
+javac -classpath ".:target/classes:target/dependency/*" -d target/classes $(find src -name "*.java")
+java -classpath "target/classes:target/dependency/*" Main
 ```
 
 ## Unit Test Workflow
@@ -54,14 +54,14 @@ Tests are executed through the custom **`TestRunner`** class, which uses JUnit's
 To run the whole suite in one command:
 
 ```bash
-test.bat
+./test.sh
 ```
 
 Equivalent manual commands:
 
 ```bash
-javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')
-java -classpath .:target/dependency/* TestRunner
+javac -classpath ".:target/classes:target/dependency/*" -d target/classes $(find src -name "*.java")
+java -classpath "target/classes:target/dependency/*" TestRunner
 ```
 
 ### Alternative (Maven Surefire)

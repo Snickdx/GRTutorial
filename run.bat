@@ -1,3 +1,3 @@
 @echo off
 call compile.bat
-java -classpath .;target\dependency\* Main
+java -classpath target\classes;target\dependency\* Main
