@@ -12,10 +12,11 @@ A Java tutorial project that models a game rental service. Users (customers and 
 
 ## Running the Application
 
-Helper scripts are provided to compile and run for both Linux/macOS (`.sh`) and Windows (`.bat`):
+Helper scripts are provided to compile, run, and manage dependencies for both Linux/macOS (`.sh`) and Windows (`.bat`):
 
 | Linux / macOS | Windows | What it does |
 |---|---|---|
+| `./install_deps.sh` | `install_deps.bat` | Downloads & copies project dependencies to `target/dependency` |
 | `./compile.sh` | `compile.bat` | Compiles all source and test Java files |
 | `./run.sh` | `run.bat` | Compiles, then runs the app (`Main`) |
 | `./test.sh` | `test.bat` | Compiles, then runs the test suite (`TestRunner`) |
