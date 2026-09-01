@@ -12,6 +12,22 @@ A Java tutorial project that models a game rental service. Users (customers and 
 
 ## Running the Application
 
+Helper scripts are provided to compile and run:
+
+| Command       | What it does                          |
+|---------------|---------------------------------------|
+| `compile.bat` | Compiles all `.java` files            |
+| `run.bat`     | Compiles, then runs the app (`Main`)  |
+| `test.bat`    | Compiles, then runs the test suite    |
+
+To run the app:
+
+```bash
+run.bat
+```
+
+Equivalent manual commands:
+
 ```bash
 javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')
 java -classpath .:target/dependency/* Main
@@ -35,12 +51,18 @@ Tests use **JUnit 4** conventions (`@Test`, `@Before`, static `Assert.*`). There
 
 Tests are executed through the custom **`TestRunner`** class, which uses JUnit's `JUnitCore` to run every test class and print a formatted report (per-class results plus an overall summary with pass/fail counts, success rate, and execution time).
 
+To run the whole suite in one command:
+
+```bash
+test.bat
+```
+
+Equivalent manual commands:
+
 ```bash
 javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')
 java -classpath .:target/dependency/* TestRunner
 ```
-
-On Replit, the **"Run Tests"** workflow (configured in `.replit`) performs both steps automatically: first compiling all `.java` files, then launching `TestRunner`.
 
 ### Alternative (Maven Surefire)
 
